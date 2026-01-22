@@ -11,12 +11,14 @@ export default function App() {
   const [polaroidScope, animatePolaroid] = useAnimate();
   const [cats, setCats] = useState<CatData[]>([]);
   const [catIdx, setCatIdx] = useState<number>(-1);
+  const [dataLoaded, setDataLoaded] = useState<boolean>(false);
   const [complete, setComplete] = useState<boolean>(false);
 
   useEffect(() => {
     getCats().then((fetchedCats) => {
       setCats(fetchedCats);
       setCatIdx(fetchedCats.length - 1);
+      setDataLoaded(true);
     });
   }, []);
 
@@ -123,7 +125,7 @@ export default function App() {
 
   return (
     <>
-      {complete && (
+      {dataLoaded && complete && (
         <div className="flex flex-col items-center justify-center w-screen">
           <p className="text-2xl font-sour-gummy my-5">
             You liked{" "}
@@ -147,7 +149,7 @@ export default function App() {
         </div>
       )}
 
-      {!complete && (
+      {dataLoaded && !complete && (
         <div className="overflow-x-hidden">
           <div className="fixed w-dvw h-dvh flex items-center justify-center z-50">
             <div className="absolute -translate-y-50">
