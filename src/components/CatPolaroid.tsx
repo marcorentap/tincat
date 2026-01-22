@@ -6,10 +6,6 @@ import dislikedImg from "../assets/disliked.png";
 export type CatPolaroidProps = {
   imageUrl: string;
   name: string;
-  tapeTR?: boolean;
-  tapeTL?: boolean;
-  tapeBL?: boolean;
-  tapeBR?: boolean;
   status?: "liked" | "disliked";
 };
 
@@ -39,7 +35,7 @@ export default function CatPolaroid(props: CatPolaroidProps) {
         onLoad={() => setLoaded(true)}
       />
 
-      <p className="text-xl text-center mt-2.5">{props.name}</p>
+      <p className="text-xl text-center mt-2.5 font-sour-gummy">{props.name}</p>
     </div>
   );
 }
