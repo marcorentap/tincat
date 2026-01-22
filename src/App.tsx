@@ -70,6 +70,10 @@ export default function App() {
       },
       { duration: 1 },
     );
+
+    if (catIdx <= 0) {
+      setComplete(true);
+    }
   }
 
   async function onRightSwipe() {
