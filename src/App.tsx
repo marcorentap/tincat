@@ -5,6 +5,7 @@ import CatPolaroid from "./components/CatPolaroid";
 import { getCats, type CatData } from "./utils/Data";
 import { useEffect, useState } from "react";
 import Instruction from "./components/Instruction";
+import { preload } from "react-dom";
 
 export default function App() {
   const [pawScope, animatePaw] = useAnimate();
@@ -19,6 +20,12 @@ export default function App() {
       setCats(fetchedCats);
       setCatIdx(fetchedCats.length - 1);
       setDataLoaded(true);
+
+      // Preload top cat image so the card isn't empty for too long
+      const topCat = fetchedCats.at(-1);
+      if (topCat?.imageUrl) {
+        preload(topCat.imageUrl, { as: "image" });
+      }
     });
   }, []);
 
