@@ -4,8 +4,6 @@ import { useAnimate } from "motion/react-mini";
 import { useEffect, useState } from "react";
 
 export default function Instruction() {
-  const [leftScope, animateLeft] = useAnimate();
-  const [rightScope, animateRight] = useAnimate();
   const [rightVisible, setRightVisible] = useState(true);
   const [leftVisible, setLeftVisible] = useState(false);
 
@@ -23,7 +21,6 @@ export default function Instruction() {
     <>
       {leftVisible && (
         <motion.div
-          ref={leftScope}
           className="flex items-center"
           initial={{ x: 100, opacity: 0, scale: 0.5 }}
           animate={{ x: -20, opacity: 1, scale: 1 }}
@@ -38,7 +35,6 @@ export default function Instruction() {
       )}
       {rightVisible && (
         <motion.div
-          ref={rightScope}
           className="flex items-center"
           initial={{ x: -100, opacity: 0, scale: 0.5 }}
           animate={{ x: 20, opacity: 1, scale: 1 }}

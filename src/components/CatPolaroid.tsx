@@ -9,16 +9,10 @@ export type CatPolaroidProps = {
   status?: "liked" | "disliked";
 };
 
-function Tape() {
-  return <img className="absolute w-48" src={tapeImg} />;
-}
-
 export default function CatPolaroid(props: CatPolaroidProps) {
   const [loaded, setLoaded] = useState(false);
   return (
     <div className="pt-5 px-5 pb-5 bg-white shadow-xs relative">
-      {props.tapeTR && <Tape />}
-
       {props.status == "liked" && (
         <img className="absolute rotate-30 right-5 top-10" src={likedImg} />
       )}
