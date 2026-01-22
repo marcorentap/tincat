@@ -20,7 +20,7 @@ export default function App() {
     });
   }, []);
 
-  async function handleOnDragEnd(event: any, info: PanInfo) {
+  async function handleOnDragEnd(_event: PointerEvent, info: PanInfo) {
     const threshold = 100;
     if (Math.abs(info.offset.x) < threshold) return;
 

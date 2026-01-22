@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import arrowImg from "../assets/arrow.png";
-import { useAnimate } from "motion/react-mini";
 import { useEffect, useState } from "react";
 
 export default function Instruction() {

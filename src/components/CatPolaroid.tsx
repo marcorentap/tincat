@@ -1,5 +1,4 @@
 import { useState } from "react";
-import tapeImg from "../assets/tape.png";
 import likedImg from "../assets/liked.png";
 import dislikedImg from "../assets/disliked.png";
 
